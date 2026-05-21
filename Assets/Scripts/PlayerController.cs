@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     public float jumpForce = 5f;
     private bool isGrounded;
-    public LayerMask groundMask;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,9 +21,10 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 yon = new Vector3(x, 0f, z);
-        
-        rb.linearVelocity = transform.TransformDirection(yon) * moveSpeed;
+        Vector3 yurumeYonu = new Vector3(x, 0f, z);
+        Vector3 yon = transform.TransformDirection(yurumeYonu) * moveSpeed;
+
+        rb.linearVelocity = new Vector3(yon.x, rb.linearVelocity.y, yon.z);
         
     }
 
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.linearVelocity = Vector3.up * jumpForce;
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
         }
 
     }
