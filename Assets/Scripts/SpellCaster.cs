@@ -43,7 +43,11 @@ public class SpellCaster : MonoBehaviour
     {
         GameObject yeniTop = Instantiate(fireBall, firePoint.position, firePoint.rotation);
         Rigidbody rb = yeniTop.GetComponent<Rigidbody>();
-        rb.linearVelocity = firePoint.forward * fireSpeed;
+
+        rb.linearVelocity = Vector3.zero;
+
+        rb.linearVelocity = firePoint.transform.forward * fireSpeed;
+
         Destroy(yeniTop, 3f);
         fireBallOnHand.transform.localScale = Vector3.zero;
     }

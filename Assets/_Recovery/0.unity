@@ -143,13 +143,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18747078}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.3, y: 0.6, z: -0.5}
+  m_LocalRotation: {x: 0, y: 0.76604444, z: 0, w: 0.64278764}
+  m_LocalPosition: {x: 1.4, y: 0.6, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 378567084}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 100, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellCaster
   fireBall: {fileID: 7276443575874290854, guid: cf5e57cdf823aca40a97e45feb275e67, type: 3}
   firePoint: {fileID: 18747079}
-  fireSpeed: 30
+  fireSpeed: 50
   handAnimations: {fileID: 378567085}
   fireBallOnHand: {fileID: 2034603612}
   growingSpeed: 1
@@ -596,7 +596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5410363661435547490, guid: cf5e57cdf823aca40a97e45feb275e67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 5410363661435547490, guid: cf5e57cdf823aca40a97e45feb275e67, type: 3}
       propertyPath: m_LocalPosition.y
