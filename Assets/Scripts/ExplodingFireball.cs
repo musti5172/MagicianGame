@@ -13,10 +13,4 @@ public class ExplodingFireball : MonoBehaviour
         Destroy(effectClone, 2f);
         Destroy(this.gameObject);
     }
-
-    private void Update()
-    {
-        float olcek = 1f + Mathf.Sin(Time.time * 5f) * 0.1f;
-        transform.localScale = new Vector3(olcek, olcek, olcek);
-    }
 }

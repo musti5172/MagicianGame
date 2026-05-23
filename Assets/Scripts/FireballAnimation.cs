@@ -11,6 +11,7 @@ public class FireballAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float olcek = 1f + Mathf.Sin(Time.time * 5f) * 0.1f;
+        transform.localScale = new Vector3(olcek, olcek, olcek);
     }
 }
