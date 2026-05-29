@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+    private Transform player;
     private NavMeshAgent agent;
     public float atesAraligi = 2f;
     private float atesZamani = 0f;
