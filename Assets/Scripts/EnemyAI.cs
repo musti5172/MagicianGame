@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float enemyHealth = 30f;
     [SerializeField] private GameObject explosionEffectPrefab;
 
-    [SerializeField] private Canvas enemyHealthBar;
+    [SerializeField] private Slider enemyHealthBar;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
