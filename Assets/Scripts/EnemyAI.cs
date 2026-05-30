@@ -18,6 +18,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float enemyHealth = 30f;
     [SerializeField] private GameObject explosionEffectPrefab;
 
+    [SerializeField] private Canvas enemyHealthBar;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,6 +34,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemyHealthBar.transform.LookAt(Camera.main.transform);
         float mesafe = Vector3.Distance(transform.position, player.position);
         if ((mesafe > 10f))
         {
@@ -52,15 +55,33 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float damageAmount)
     {
+        enemyHealth -= damageAmount;
+
+
         boyaci.material.color = Color.red;
         Invoke("FixColor", 0.1f);
+
+        if(enemyHealth <= 0f)
+        {
+            Die();
+        }
     }
     
     void FixColor()
     {
         boyaci.material.color = orjinalRenk;
 
+    }
+
+    void Die()
+    {
+        if(explosionEffectPrefab != null)
+        {
+            Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
+        }
+
+        Destroy(this.gameObject);
     }
 }

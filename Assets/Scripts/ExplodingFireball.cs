@@ -8,13 +8,19 @@ public class ExplodingFireball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        ContactPoint temasNoktasi = collision.contacts[0];
-        GameObject effectClone = Instantiate(explosionEffect, temasNoktasi.point, Quaternion.LookRotation(temasNoktasi.normal));
-        Destroy(effectClone, 2f);
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<EnemyAI>().TakeDamage(10f);
         }
+        else
+        {
+            ContactPoint temasNoktasi = collision.contacts[0];
+            GameObject effectClone = Instantiate(explosionEffect, temasNoktasi.point, Quaternion.LookRotation(temasNoktasi.normal));
+            Destroy(effectClone, 2f);
+        }
+
         Destroy(this.gameObject);
+
+
     }
 }

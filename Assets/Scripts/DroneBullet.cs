@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DroneBullet : MonoBehaviour
@@ -15,6 +16,17 @@ public class DroneBullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * mermiHizi * Time.deltaTime);
-        
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
+            Destroy(this.gameObject);
+        }
+
+
+    }
+
 }
