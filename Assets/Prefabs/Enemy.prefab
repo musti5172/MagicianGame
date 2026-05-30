@@ -161,9 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04beddeb2534b3341979aa269ffeb040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  player: {fileID: 7069965625581501175, guid: f21af04a3fc957145a640869a31c17f6, type: 3}
   atesAraligi: 2
   mermiEnemyPrefab: {fileID: 3561622778249519824, guid: 3b2a29a96bee4a9408d1b0099bd3a5a2, type: 3}
+  enemyHealth: 30
+  explosionEffectPrefab: {fileID: 1662010776925758769, guid: dad66383da6d37f4d825b3a0abf82fd2, type: 3}
 --- !u!114 &2273891692945421344
 MonoBehaviour:
   m_ObjectHideFlags: 0

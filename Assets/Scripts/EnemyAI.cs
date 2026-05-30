@@ -5,13 +5,25 @@ public class EnemyAI : MonoBehaviour
 {
     private Transform player;
     private NavMeshAgent agent;
+
+    [Header("Saldýrý Ayarlarý")]
     public float atesAraligi = 2f;
     private float atesZamani = 0f;
     [SerializeField] private GameObject mermiEnemyPrefab;
 
+    private MeshRenderer boyaci;
+    private Color orjinalRenk;
+
+    [Header("Can ve Efekt Ayarlarý")]
+    [SerializeField] private float enemyHealth = 30f;
+    [SerializeField] private GameObject explosionEffectPrefab;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        boyaci = GetComponentInChildren<MeshRenderer>();
+        orjinalRenk = boyaci.material.color;
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player").transform;
         
@@ -27,16 +39,28 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
+            transform.LookAt(player);
             atesZamani += Time.deltaTime;   
             agent.ResetPath();
             if (atesZamani >= atesAraligi)
             {
-                transform.LookAt(player);
                 Instantiate(mermiEnemyPrefab, transform.position, transform.rotation);
                 atesZamani = 0f;
             }
         }
 
+
+    }
+
+    public void TakeDamage()
+    {
+        boyaci.material.color = Color.red;
+        Invoke("FixColor", 0.1f);
+    }
+    
+    void FixColor()
+    {
+        boyaci.material.color = orjinalRenk;
 
     }
 }
