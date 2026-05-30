@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,10 +7,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Slider healthBar;
     [SerializeField] private int maxPlayerHealth = 100;
     [SerializeField] private int currentPlayerHealth;
+    public GameObject gameOverScreen;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameOverScreen.SetActive(false);
         currentPlayerHealth = maxPlayerHealth;
         healthBar.maxValue = maxPlayerHealth;
         healthBar.value = currentPlayerHealth;
@@ -29,7 +32,9 @@ public class PlayerHealth : MonoBehaviour
 
         if(currentPlayerHealth <= 0)
         {
+            gameOverScreen.SetActive(true);
             Debug.Log("Öldün!");
+            Time.timeScale = 0f;
         }
 
     }
