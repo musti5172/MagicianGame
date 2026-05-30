@@ -61,6 +61,12 @@ public class EnemyAI : MonoBehaviour
         enemyHealth -= damageAmount;
 
 
+        if(enemyHealthBar != null)
+        {
+            enemyHealthBar.value = (float)enemyHealth / 30f;
+
+        }
+
         boyaci.material.color = Color.red;
         Invoke("FixColor", 0.1f);
 
@@ -80,7 +86,8 @@ public class EnemyAI : MonoBehaviour
     {
         if(explosionEffectPrefab != null)
         {
-            Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
+            GameObject explosionEffect = Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
+            Destroy(explosionEffect, 2f);
         }
 
         Destroy(this.gameObject);
